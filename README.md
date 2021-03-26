@@ -58,6 +58,7 @@ This web application will be **using Hadoop and Apache Kylin as a backend to hol
 
 https://sqdi2021g1.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=AQMS
 
+![alt](./img/jira.png)
 
 >## *Our System Architecture*
 
