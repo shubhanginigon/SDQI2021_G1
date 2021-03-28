@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AQMS - Admin Login</title>
+    <link th:href="@{/styles/cssandjs/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet">
+</head>
+<body>
+    <br>
+    <div class="container full-height">
+        <div class="row-cols-6 center-form">
+            <form th:action="@{/admin-login}" method="post" th:object="${user}" class="col-lg-4 col-md-6 col-sm-12">
+                <fieldset>
+
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" class="form-control" id="username" placeholder="Enter username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Login</button>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
