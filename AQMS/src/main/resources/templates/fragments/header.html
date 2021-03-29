@@ -1,33 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Air Quality Monitoring System</title>
-    <link th:href="@{/styles/cssandjs/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet">
-</head>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" dir="ltr">
+<head th:replace="fragments/head_tag :: head_tag">&nbsp;</head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" th:fragment="header">
-    <a class="navbar-brand" href="#">Air Quality Monitoring System</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+    <a class="navbar-brand" href="#" th:href="@{/}">Air Quality Monitoring System</a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01"
             aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarColor01">
+    <div class="navbar-collapse collapse " id="navbarColor01" style="">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" th:classappend="${module == 'dashboard' ? 'active' : ''}">
-                <a class="nav-link" href="#" th:href="@{/}">Dashboard
-<!--                    <span class="sr-only">(current)</span>-->
-                </a>
+                <a class="nav-link" href="#" th:href="@{/}">Dashboard</a>
             </li>
-            <li th:classappend="${module == 'features' ? 'active' : ''}" class="nav-item">
+            <li class="nav-item" th:classappend="${module == 'features' ? 'active' : ''}">
                 <a class="nav-link" href="#" th:href="@{/features}">Features</a>
             </li>
-            <li th:classappend="${module == 'our_team' ? 'active' : ''}" class="nav-item">
+            <li class="nav-item" th:classappend="${module == 'our_team' ? 'active' : ''}">
                 <a class="nav-link" href="#" th:href="@{/ourTeam}">Our Team</a>
             </li>
-            <li th:classappend="${module == 'about' ? 'active' : ''}" class="nav-item">
+            <li class="nav-item" th:classappend="${module == 'about' ? 'active' : ''}">
                 <a class="nav-link" href="#" th:href="@{/about}">About</a>
             </li>
         </ul>
