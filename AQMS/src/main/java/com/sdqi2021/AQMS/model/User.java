@@ -3,14 +3,15 @@ package com.sdqi2021.AQMS.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
-
 public class User {
 
     @Id
@@ -28,5 +29,8 @@ public class User {
 
     @Column(nullable = false)
     private boolean active;
+
+    @Column(nullable = false)
+    private String role;
 
 }

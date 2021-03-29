@@ -1,0 +1,17 @@
+.center-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-height {
+    height: 100%;
+}
+
+html, body {
+    height: 100%;
+}
+
+.login-card {
+    margin: 20px;
+}
