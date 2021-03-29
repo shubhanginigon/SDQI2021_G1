@@ -4,14 +4,136 @@
     align-items: center;
 }
 
-.full-height {
+html, body, .container {
     height: 100%;
 }
 
-html, body {
+nav {
+    z-index: 5;
+}
+
+.sidebar-content {
+    width: calc(100% - 250px);
+    padding: 20px;
+    margin-left: 250px;
     height: 100%;
 }
 
-.login-card {
-    margin: 20px;
+.aqms-footer {
+    background-color: #2c3e50;
+    color: white;
+    z-index: -1;
+}
+
+/*Sidebar CSS*/
+header{
+    z-index: 1;
+    position: fixed;
+    background: #22242A;
+    padding: 20px;
+    width: calc(100% - 0%);
+    top: 0;
+    height: 30px;
+}
+
+.left_area h3{
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.left_area span{
+    color: #19B3D3;
+}
+
+.sidebar{
+    z-index: 1;
+    top: 0;
+    background: #363740;
+    margin-top: 70px;
+    padding-top: 30px;
+    position: absolute;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    transition: 0.5s;
+    transition-property: left;
+    overflow-y: auto;
+}
+
+.profile_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar .profile_info .profile_image{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    border-width: 3px;
+    border-color: #6d8082;
+    border-style: solid;
+}
+
+.sidebar .profile_info h4{
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.sidebar a{
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: background;
+}
+
+.sidebar a:hover{
+    background: #43454e;
+}
+
+/*.sidebar a .active {*/
+/*    background: #43454e;*/
+/*}*/
+
+.sidebar i{
+    padding-right: 10px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar-nav {
+    margin-left: -50px;
+}
+
+.sidebar-nav > .active > a {
+    background: #43454e;
+}
+
+label #sidebar_btn{
+    z-index: 1;
+    color: #fff;
+    position: fixed;
+    cursor: pointer;
+    left: 300px;
+    font-size: 20px;
+    margin: 5px 0;
+    transition: 0.5s;
+    transition-property: color;
+}
+
+label #sidebar_btn:hover{
+    color: #19B3D3;
 }

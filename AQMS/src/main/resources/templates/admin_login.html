@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AQMS - Admin Login</title>
-    <link th:href="@{/styles/cssandjs/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet">
-</head>
+<head th:replace="fragments/head_tag :: head_tag">&nbsp;</head>
 <body>
 <br>
 <div class="container full-height">
@@ -14,8 +9,8 @@
             <div class="card">
                 <div class="card-header text-center">Administrator Login</div>
                 <div class="card-body">
-                    <div class="text-center">
-                        <img src="sensor_logo.svg" width="200px">
+                    <div class="text-center py-2">
+                        <img src="sensor_logo.svg" width="130px">
                     </div>
                     <div class="text-secondary text-center">
                         <h4>Air Quality Monitoring System</h4>
@@ -41,42 +36,6 @@
             </div>
         </div>
     </div>
-
-
-
-<!--    <div class="login-card">-->
-<!--        <div class="row">-->
-<!--            <div class="col-12">-->
-<!--                <img src="sensor_logo.svg" width="200px">-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="row">-->
-<!--            <div class="text-secondary col-12">-->
-<!--                Air Quality Management System-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="row">-->
-<!--            <form th:action="@{/admin-login}" method="post" th:object="${user}" class="col-lg-4 col-md-6 col-sm-10">-->
-<!--                <fieldset>-->
-
-<!--                    <div class="form-group">-->
-<!--                        <label for="username">Username:</label>-->
-<!--                        <input type="text" name="username" class="form-control" id="username"-->
-<!--                               placeholder="Enter username" required>-->
-<!--                    </div>-->
-
-<!--                    <div class="form-group">-->
-<!--                        <label for="password">Password:</label>-->
-<!--                        <input type="password" name="password" class="form-control" id="password" placeholder="Password"-->
-<!--                               required>-->
-<!--                    </div>-->
-
-<!--                    <button type="submit" class="btn btn-success">Login</button>-->
-<!--                </fieldset>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-
 
 </div>
 </body>
