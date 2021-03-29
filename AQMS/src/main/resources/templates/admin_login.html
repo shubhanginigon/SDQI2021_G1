@@ -7,27 +7,77 @@
     <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet">
 </head>
 <body>
-    <br>
-    <div class="container full-height">
-        <div class="row-cols-6 center-form">
-            <form th:action="@{/admin-login}" method="post" th:object="${user}" class="col-lg-4 col-md-6 col-sm-12">
-                <fieldset>
-
-                    <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" name="username" class="form-control" id="username" placeholder="Enter username" required>
+<br>
+<div class="container full-height">
+    <div class="row justify-content-center">
+        <div class="col-xl-5 col-lg-6 col-md-8">
+            <div class="card">
+                <div class="card-header text-center">Administrator Login</div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <img src="sensor_logo.svg" width="200px">
                     </div>
-
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                    <div class="text-secondary text-center">
+                        <h4>Air Quality Monitoring System</h4>
                     </div>
+                    <form th:action="@{/admin-login}" method="post" th:object="${user}" class="mt-4">
+                        <fieldset>
 
-                    <button type="submit" class="btn btn-success">Login</button>
-                </fieldset>
-            </form>
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input type="text" name="username" class="form-control form-control-lg" id="username"
+                                       placeholder="Enter your username" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" name="password" class="form-control form-control-lg" id="password" placeholder="Enter your password"
+                                       required>
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-success btn-block col-6 mx-auto">Login</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </div>
-
     </div>
+
+
+
+<!--    <div class="login-card">-->
+<!--        <div class="row">-->
+<!--            <div class="col-12">-->
+<!--                <img src="sensor_logo.svg" width="200px">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--            <div class="text-secondary col-12">-->
+<!--                Air Quality Management System-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--            <form th:action="@{/admin-login}" method="post" th:object="${user}" class="col-lg-4 col-md-6 col-sm-10">-->
+<!--                <fieldset>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <label for="username">Username:</label>-->
+<!--                        <input type="text" name="username" class="form-control" id="username"-->
+<!--                               placeholder="Enter username" required>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <label for="password">Password:</label>-->
+<!--                        <input type="password" name="password" class="form-control" id="password" placeholder="Password"-->
+<!--                               required>-->
+<!--                    </div>-->
+
+<!--                    <button type="submit" class="btn btn-success">Login</button>-->
+<!--                </fieldset>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+</div>
 </body>
 </html>
