@@ -5,17 +5,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 public class PublicDashboardController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PublicDashboardController.class);
 
-//    @ModelAttribute("module")
-//    public String module() {
-//        return "navbar_dashboard";
-//    }
+    // @ModelAttribute("module")
+    // public String module() {
+    // return "navbar_dashboard";
+    // }
 
     @GetMapping("/")
     public String showPublicIndex(Model model) {
