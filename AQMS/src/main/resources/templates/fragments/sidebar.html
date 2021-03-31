@@ -6,8 +6,8 @@
     <!--sidebar start-->
     <div class="sidebar">
         <div class="profile_info">
-            <img src="../admin_mock.svg" class="profile_image" alt="profile_image">
-            <h4>Admin</h4>
+            <img th:src="@{/images/admin_mock.svg}" src="#" class="profile_image" alt="profile_image">
+            <h4 th:text="${#authentication.getPrincipal().getUsername()}">Admin</h4>
         </div>
         <ul class="sidebar-nav">
             <li class="sidebar-nav-item" th:classappend="${module == 'sidebar_dashboard' ? 'active' : ''}">

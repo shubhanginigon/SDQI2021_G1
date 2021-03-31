@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en" dir="ltr">
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      dir="ltr"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/head_tag :: head_tag"></head>
 <body>
 
@@ -32,9 +35,8 @@
                 </a>
             </li>
             <li th:if="${#authorization.expression('isAuthenticated()')}">
-                <span class="text-white align-self-baseline">Logged in as </span>
+                <span class="text-white align-self-baseline">Logged in as: </span>
                 <a class="btn btn-link" href="#" th:href="@{/admin}" th:text="${#authentication.getPrincipal().getUsername()}">
-<!--                    <span th:text="${#authentication.getPrincipal().getUsername()}"></span>-->
                 </a>
                 <a class="btn btn-danger" href="/logout" th:href="@{/logout}" onclick="$('#form').submit();">
                     Logout

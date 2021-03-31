@@ -10,7 +10,8 @@
                 <div class="card-header text-center">Administrator Login</div>
                 <div class="card-body">
                     <div class="text-center py-2">
-                        <img src="../sensor_logo.svg" width="130px">
+<!--                        <img src="../sensor_logo.svg" width="130px">-->
+                        <img th:src="@{/public/images/sensor_logo.svg}" src="#" width="130px">
                     </div>
                     <div class="text-secondary text-center">
                         <h4>Air Quality Monitoring System</h4>
@@ -21,7 +22,7 @@
                             <div class="form-group">
                                 <label for="username">Username:</label>
                                 <input type="text" name="username" class="form-control form-control-lg" id="username"
-                                       placeholder="Enter your username" required>
+                                       placeholder="Enter your username" required autofocus>
                             </div>
 
                             <div class="form-group">
