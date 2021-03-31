@@ -44,12 +44,12 @@ This web application will be **using Hadoop and Apache Kylin as a backend to hol
 | 4.5. Coding | progress |
 | 4.6.  Integration with database | progress |
 | 5. Testing |  |
-| 5.1.  Unit testing  |  |
+| 5.1.  Unit testing  | progress  |
 | 5.2.  Integration testing |  |
 | 5.3.  Performance testing |  |
 | 5.4.  Stress testing |  |
 | 5.5.  Acceptance testing |  |
-| 5.6.  Testing Documentation |  |
+| 5.6.  Testing Documentation | progress |
 | 6. Documentation |  |
 | 6.1.  User’s Guide  |  |
 | 6.2.  Presentation slide |  |
