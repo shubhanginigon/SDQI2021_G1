@@ -13,15 +13,15 @@ public class AqmsApplication {
 		SpringApplication.run(AqmsApplication.class, args);
 	}
 
-	@Configuration
-	public static class WebConfig implements WebMvcConfigurer {
-
-		@Override
-		public void addResourceHandlers(ResourceHandlerRegistry registry) {
-			registry.addResourceHandler("/**")
-					.addResourceLocations("classpath:/static/", "classpath:/images/")
-					.setCachePeriod(0);
-		}
-	}
+//	@Configuration
+//	public static class WebConfig implements WebMvcConfigurer {
+//
+//		@Override
+//		public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//			registry.addResourceHandler("/**")
+//					.addResourceLocations("classpath:/static/", "classpath:/images/")
+//					.setCachePeriod(0);
+//		}
+//	}
 
 }
