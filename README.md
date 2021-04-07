@@ -62,7 +62,7 @@ https://sqdi2021g1.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=A
 
 >## *Our System Architecture*
 
-![alt](./img/architecture_diagram.jpg)
+![alt](./img/SA.jpg)
 
 For more details on implementation follow our link:
 
