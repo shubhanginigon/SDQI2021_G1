@@ -13,8 +13,8 @@ ${delay}  1
     Maximize Browser Window
     Set Selenium Speed   0.3
 2. Input username and password
-   Input Text  name=username Younten
-   Input Text  name=password 1234
+   Input Text  name=username  Younten
+   Input Text  name=password  1234
 3. Login
    Click Button  name=submit
 4. Check page info
