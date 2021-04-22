@@ -26,8 +26,6 @@ public class StationService {
     @Autowired
     StationRepo stationRepo;
 
-    Timer timer;
-
     public void saveAll(List<Station> stations) {
         System.out.println("SAVING " + stations.size() + " stations to database");
         stationRepo.saveAll(stations);

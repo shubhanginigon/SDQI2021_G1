@@ -23,12 +23,16 @@ public class JobSchedulerService {
     private int runCount = 0;
 
     public void startRetrievingStations() {
+
         // Create Timer Task
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
 
-                if (runCount >= 3) { stopRetrievingStations(); }
+                if (runCount >= 3) {
+                    stopRetrievingStations();
+                    return;
+                }
                 try {
                     stationService.retrieveAndSaveAllStations();
                 } catch (IOException | ParseException e) {
@@ -45,6 +49,7 @@ public class JobSchedulerService {
 
     public void stopRetrievingStations() {
         timer.cancel();
+        timer = null;
         runCount = 0;
         LOGGER.info("--- Timer cancelled ! ---");
     }
