@@ -45,24 +45,24 @@ This web application will be **using Hadoop and Apache Kylin as a backend to hol
 | 4.6.  Integration with database | progress |
 | 5. Testing |  |
 | 5.1.  Unit testing  | progress  |
-| 5.2.  Integration testing |  |
-| 5.3.  Performance testing |  |
-| 5.4.  Stress testing |  |
+| 5.2.  Integration testing | progress |
+| 5.3.  Performance testing | progress |
+| 5.4.  Stress testing | progress |
 | 5.5.  Acceptance testing |  |
 | 5.6.  Testing Documentation | progress |
 | 6. Documentation |  |
-| 6.1.  User’s Guide  |  |
-| 6.2.  Presentation slide |  |
+| 6.1.  User’s Guide  | progress |
+| 6.2.  Presentation slide | progress |
 | 6.3.  All updated Design, Testing documents (Final report) | progress  |
 >## *For more details on work plan follow our link in jira:*
 
 https://sqdi2021g1.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=AQMS
 
-![alt](./img/jira.png)
+![alt](./img/WorkBreakDown.png)
 
 >## *Our System Architecture*
 
-![alt](./img/architecture_diagram.jpg)
+![alt](./img/SA.jpg)
 
 For more details on implementation follow our link:
 
