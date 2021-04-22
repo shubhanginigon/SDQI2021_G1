@@ -1,6 +1,7 @@
 package com.sdqi2021.AQMS.controller.admin;
 
 import com.sdqi2021.AQMS.model.User;
+import com.sdqi2021.AQMS.service.JobSchedulerService;
 import com.sdqi2021.AQMS.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,14 @@ public class AdminController {
     @Autowired
     UserService userService;
 
+//    @Autowired
+//    StationService stationService;
+//
+
+    @Autowired
+    JobSchedulerService jobSchedulerService;
+
+
     @ModelAttribute("module")
     public String module() {
         return "sidebar_dashboard";
@@ -29,6 +38,11 @@ public class AdminController {
         //User user = userService.findByUsername(principal.getName());
         model.addAttribute("title", "Admin Dashboard");
         //model.addAttribute("user", user);
+
+
+        // Start Station service on admin login
+        jobSchedulerService.startRetrievingStations();
+
         return "admin_index";
     }
 
