@@ -18,10 +18,7 @@ ${delay}  1
 3. Login
    Click Button  name=submit
 4. Check page info
-   Click Link    xpath=(//a[@href="#"])[2]
-   ${result}  Get Text  xpath=(//div)[8]
-   Log To Console  ${result}
-   Should Contain  ${result}  ${expect} 
+ 
 
 5. close Browser
    Close Browser
