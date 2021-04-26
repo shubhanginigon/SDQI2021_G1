@@ -7,8 +7,69 @@
 <div th:replace="fragments/sidebar :: sidebar"></div>
 
 <div class="container sidebar-content">
-    <h3>Here, we can add different sensor stations / APIs and configure them and get PM2.5 data in one common format.</h3>
+
+        <div id="sensor-status" class="row">
+            <div class="col-8 pt-3 pb-3">
+                <strong>Server Status: </strong><span class="text-success">Running</span>
+
+                <br>
+                <strong>Refresh Interval: </strong><span class="text-info">2 minutes</span>
+
+                <br>
+                <strong>Last Update: </strong><span class="text-info">2021-12-12</span>
+                <br>
+                <strong>Number of Stations: </strong><span class="text-info">141</span>
+
+
+            </div>
+            <div class="col-4 mt-4 pt-3">
+                <a href="#" class="btn btn-info">Start/Stop Server</a>
+            </div>
+        </div>
+
+        <div id="stations" class="row mt-3">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#tabular">Tabular</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#map">Map View</a>
+                </li>
+            </ul>
+            <br>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active show" id="tabular">
+                    <div id="stations-list" class="row mt-3">
+                        <table class="table table-hover table-sm table-bordered">
+                            <thead>
+                            <tr class="table-primary">
+                                <th scope="col">Station ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Area</th>
+                                <th scope="col">PM2.5</th>
+                                <th scope="col">Unit</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="table-default">
+                                <th scope="row">02t</th>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="map">
+                    <p>Map View</p>
+                </div>
+            </div>
+        </div>
+
 </div>
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
+

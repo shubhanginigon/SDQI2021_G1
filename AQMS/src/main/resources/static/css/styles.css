@@ -1,3 +1,18 @@
+/*Sensors CSS*/
+div#sensor-status {
+    background-color: floralwhite;
+    width: 100%;
+    border: 2px solid black;
+}
+
+div#stations {
+
+}
+
+div#stations .nav-tabs {
+    width: 100%;
+}
+
 .center-form {
     display: flex;
     justify-content: center;
@@ -137,3 +152,4 @@ label #sidebar_btn{
 label #sidebar_btn:hover{
     color: #19B3D3;
 }
+

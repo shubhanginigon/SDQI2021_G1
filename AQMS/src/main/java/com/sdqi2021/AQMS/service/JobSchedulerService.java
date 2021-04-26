@@ -35,6 +35,7 @@ public class JobSchedulerService {
                 }
                 try {
                     stationService.retrieveAndSaveAllStations();
+                    runCount = runCount + 1;
                 } catch (IOException | ParseException e) {
                     e.printStackTrace();
                     LOGGER.error("Localized Error: " + e.getLocalizedMessage());
@@ -43,8 +44,9 @@ public class JobSchedulerService {
         };
         timer = new Timer();
         timer.schedule(timerTask, 0L, 10000L);
-        runCount = runCount + 1;
+
         LOGGER.info("--- 10s Timer started with fixed rate scheduling... ---");
+        LOGGER.info("Run Count: {}", runCount);
     }
 
     public void stopRetrievingStations() {
@@ -52,6 +54,7 @@ public class JobSchedulerService {
         timer = null;
         runCount = 0;
         LOGGER.info("--- Timer cancelled ! ---");
+        LOGGER.info("Run Count: {}", runCount);
     }
 
     public int getRunCount() {

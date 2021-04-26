@@ -1,13 +1,13 @@
 <component name="libraryTable">
-  <library name="Maven: net.bytebuddy:byte-buddy:1.10.22">
+  <library name="Maven: com.jayway.jsonpath:json-path:2.4.0">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.10.22/byte-buddy-1.10.22.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.10.22/byte-buddy-1.10.22-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.10.22/byte-buddy-1.10.22-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
