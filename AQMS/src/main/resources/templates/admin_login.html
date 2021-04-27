@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-  <head th:replace="fragments/head_tag :: head_tag">
+<head th:replace="fragments/head_tag :: head_tag">
     &nbsp;
-  </head>
-  <body>
-    <br />
-    <div class="container full-height">
-      <div class="row justify-content-center">
+</head>
+<body>
+<br/>
+<div class="container full-height">
+    <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-6 col-md-8">
-          <div class="card">
-            <div class="card-header text-center">Administrator Login</div>
-            <div class="card-body">
-              <div class="text-center py-2">
-                <!--                        <img src="../sensor_logo.svg" width="130px">-->
-                <img
-                  th:src="@{/public/images/sensor_logo.svg}"
-                  src="#"
-                  width="130px"
-                />
-              </div>
-              <div class="text-secondary text-center">
-                <h4>Air Quality Monitoring System</h4>
-              </div>
-              <form
-                th:action="@{/admin/login}"
-                method="post"
-                th:object="${user}"
-                class="mt-4"
-              >
-                <fieldset>
-                  <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input
-                      type="username"
-                      name="username"
-                      class="form-control form-control-lg"
-                      id="username"
-                      placeholder="Enter your username"
-                      required
-                      autofocus
-                    />
-                  </div>
+            <div class="card">
+                <div class="card-header text-center">Administrator Login</div>
+                <div class="card-body">
+                    <div class="text-center py-2">
+                        <!--                        <img src="../sensor_logo.svg" width="130px">-->
+                        <img
+                                th:src="@{/public/images/sensor_logo.svg}"
+                                src="#"
+                                width="130px"
+                        />
+                    </div>
+                    <div class="text-secondary text-center">
+                        <h4>Air Quality Monitoring System</h4>
+                    </div>
+                    <form
+                            th:action="@{/admin/login}"
+                            method="post"
+                            th:object="${user}"
+                            class="mt-4"
+                    >
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input
+                                        type="username"
+                                        name="username"
+                                        class="form-control form-control-lg"
+                                        id="username"
+                                        placeholder="Enter your username"
+                                        value="admin"
+                                        required
+                                        autofocus
+                                />
+                            </div>
 
-                  <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input
-                      type="password"
-                      name="password"
-                      class="form-control form-control-lg"
-                      id="password"
-                      placeholder="Enter your password"
-                      required
-                    />
-                  </div>
-                  <button
-                    id="submit"
-                    name="submit"
-                    type="submit"
-                    class="btn btn-lg btn-success btn-block col-6 mx-auto"
-                  >
-                    Login
-                  </button>
-                </fieldset>
-              </form>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input
+                                        type="password"
+                                        name="password"
+                                        class="form-control form-control-lg"
+                                        id="password"
+                                        value="admin"
+                                        placeholder="Enter your password"
+                                        required
+                                />
+                            </div>
+                            <button
+                                    id="submit"
+                                    name="submit"
+                                    type="submit"
+                                    class="btn btn-lg btn-success btn-block col-6 mx-auto"
+                            >
+                                Login
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </body>
+</div>
+</body>
 </html>
