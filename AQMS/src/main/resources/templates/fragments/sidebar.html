@@ -1,44 +1,75 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en" dir="ltr">
-<head th:replace="fragments/head_tag :: head_tag">&nbsp;</head>
-<body>
-<div th:fragment="sidebar">
-    <!--sidebar start-->
-    <div class="sidebar">
+  <head th:replace="fragments/head_tag :: head_tag">
+    &nbsp;
+  </head>
+  <body>
+    <div th:fragment="sidebar">
+      <!--sidebar start-->
+      <div class="sidebar">
         <div class="profile_info">
-            <img th:src="@{/images/admin_mock.svg}" src="#" class="profile_image" alt="profile_image">
-            <h4 th:text="${#authentication.getPrincipal().getUsername()}">Admin</h4>
+          <img
+            th:src="@{/images/admin_mock.svg}"
+            src="#"
+            class="profile_image"
+            alt="profile_image"
+          />
+          <h4 th:text="${#authentication.getPrincipal().getUsername()}">
+            Admin
+          </h4>
         </div>
         <ul class="sidebar-nav">
-            <li class="sidebar-nav-item" th:classappend="${module == 'sidebar_dashboard' ? 'active' : ''}">
-                <a th:href="@{/admin}" href="#"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
-            </li>
-            <li class="sidebar-nav-item" th:classappend="${module == 'sidebar_sensors' ? 'active' : ''}">
-                <a th:href="@{/admin/sensors}" href="#"><i class="fas fa-bullseye"></i><span>Sensors</span></a>
-            </li>
-            <li class="sidebar-nav-item" th:classappend="${module == 'sidebar_reports' ? 'active' : ''}">
-                <a th:href="@{/admin/reports}" href="#"><i class="fas fa-chart-bar"></i><span>Reports</span></a>
-            </li>
-            <li class="sidebar-nav-item" th:classappend="${module == 'sidebar_profile' ? 'active' : ''}">
-                <a th:href="@{/admin/profile}" href="#"><i class="fas fa-user"></i><span>Profile</span></a>
-            </li>
-            <li class="sidebar-nav-item" th:classappend="${module == 'sidebar_settings' ? 'active' : ''}">
-                <a th:href="@{/admin/settings}" href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
-            </li>
+          <li
+            class="sidebar-nav-item"
+            th:classappend="${module == 'sidebar_dashboard' ? 'active' : ''}"
+          >
+            <a th:href="@{/admin}" href="#"
+              ><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a
+            >
+          </li>
+          <li
+            class="sidebar-nav-item"
+            th:classappend="${module == 'sidebar_sensors' ? 'active' : ''}"
+          >
+            <a th:href="@{/admin/sensors}" href="#"
+              ><i class="fas fa-bullseye"></i>Sensors</a
+            >
+          </li>
+          <li
+            class="sidebar-nav-item"
+            th:classappend="${module == 'sidebar_reports' ? 'active' : ''}"
+          >
+            <a th:href="@{/admin/reports}" href="#"
+              ><i class="fas fa-chart-bar"></i><span>Reports</span></a
+            >
+          </li>
+          <li
+            class="sidebar-nav-item"
+            th:classappend="${module == 'sidebar_profile' ? 'active' : ''}"
+          >
+            <a th:href="@{/admin/profile}" href="#"
+              ><i class="fas fa-user"></i><span>Profile</span></a
+            >
+          </li>
+          <li
+            class="sidebar-nav-item"
+            th:classappend="${module == 'sidebar_settings' ? 'active' : ''}"
+          >
+            <a th:href="@{/admin/settings}" href="#"
+              ><i class="fas fa-sliders-h"></i><span>Settings</span></a
+            >
+          </li>
         </ul>
-    </div>
-    <!--sidebar end-->
-    <script>
+      </div>
+      <!--sidebar end-->
+      <script>
         $(document).ready(function () {
-            $('ul.sidebar-nav > li')
-                .click(function (e) {
-                    $('ul.sidebar-nav > li')
-                        .removeClass('active');
-                    $(this).addClass('active');
-                });
+          $("ul.sidebar-nav > li").click(function (e) {
+            $("ul.sidebar-nav > li").removeClass("active");
+            $(this).addClass("active");
+          });
         });
-    </script>
-</div>
-
-</body>
+      </script>
+    </div>
+  </body>
 </html>
