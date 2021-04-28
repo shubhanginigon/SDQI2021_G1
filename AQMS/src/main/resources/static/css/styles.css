@@ -19,6 +19,11 @@ nav {
     padding: 20px;
     margin-left: 250px;
     height: 100%;
+    overflow-y: hidden;
+}
+
+.admin-content {
+    margin: 0px;
 }
 
 .aqms-footer {
@@ -142,13 +147,13 @@ label #sidebar_btn:hover{
 
 /*Sensors CSS*/
 #sensor_status{
-    background-color: #87dccc;
-    width: 100%;
-    border: 2px solid blue;
+    background-color: #fafbfb;
+    border: 1px solid #7b7d7d;
+    align-items: center;
 }
 
-div#stations {
-
+#stations-list {
+    overflow: auto;
 }
 
 div#stations .nav-tabs {

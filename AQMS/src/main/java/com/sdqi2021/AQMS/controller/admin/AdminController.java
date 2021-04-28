@@ -1,7 +1,9 @@
 package com.sdqi2021.AQMS.controller.admin;
 
+import com.sdqi2021.AQMS.model.SensorSettings;
 import com.sdqi2021.AQMS.model.User;
 import com.sdqi2021.AQMS.service.JobSchedulerService;
+import com.sdqi2021.AQMS.service.SensorSettingsService;
 import com.sdqi2021.AQMS.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.transaction.Transactional;
 
 
 @Controller
@@ -20,13 +24,11 @@ public class AdminController {
     @Autowired
     UserService userService;
 
-//    @Autowired
-//    StationService stationService;
-//
-
     @Autowired
     JobSchedulerService jobSchedulerService;
 
+    @Autowired
+    SensorSettingsService sensorSettingsService;
 
     @ModelAttribute("module")
     public String module() {
@@ -35,13 +37,10 @@ public class AdminController {
 
     @GetMapping({"/", ""})
     public String showAdminIndex(Model model) {
-        //User user = userService.findByUsername(principal.getName());
         model.addAttribute("title", "Admin Dashboard");
-        //model.addAttribute("user", user);
 
-
-        // Start Station service on admin login
-        jobSchedulerService.startRetrievingStations();
+        // Start Station service on admin login based on settings
+        startStopStationServers();
 
         return "admin_index";
     }
@@ -57,6 +56,30 @@ public class AdminController {
     public String performAdminLogin(@ModelAttribute User user, Model model) {
         LOGGER.info("{} LOGGED IN !", user.getUsername());
         return "redirect:/admin";
+    }
+
+    @Transactional
+    @PostMapping("startServer")
+    public String startServer() {
+        LOGGER.info("Server Started and Running...");
+        sensorSettingsService.getSettings().setServerRunning(true);
+        startStopStationServers();
+        return "redirect:/admin/sensors";
+    }
+
+    @Transactional
+    @PostMapping("stopServer")
+    public String stopServer() {
+        LOGGER.info("Server Stopped...");
+        sensorSettingsService.getSettings().setServerRunning(false);
+        return "redirect:/admin/sensors";
+    }
+
+    private void startStopStationServers() {
+        // Start Station service on admin login based on settings
+        if (sensorSettingsService.getSettings().isServerRunning()) {
+            jobSchedulerService.startRetrievingStations();
+        }
     }
 
 }

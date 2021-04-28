@@ -11,8 +11,9 @@
     <span>Software Development and Quality Improvement Project 2021, AIT</span>
 </div>
 <div th:fragment="footer-admin" th:align="center" class="aqms-footer">
-    &copy; <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2017</span>
+    <small> &copy; <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2017</span>
     <span>Software Development and Quality Improvement Project 2021, AIT </span><span th:text="${@environment.getProperty('app.version')}"></span>
+    </small>
 </div>
 </body>
 </html>

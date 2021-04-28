@@ -1,6 +1,7 @@
 package com.sdqi2021.AQMS.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sdqi2021.AQMS.model.SensorSettings;
 import com.sdqi2021.AQMS.model.dataModel.LastUpdate;
 import com.sdqi2021.AQMS.model.dataModel.PM25;
 import com.sdqi2021.AQMS.model.dataModel.Station;
@@ -12,13 +13,13 @@ import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Timer;
 
 @Service
 public class StationService {
@@ -26,9 +27,18 @@ public class StationService {
     @Autowired
     StationRepo stationRepo;
 
+    @Autowired
+    SensorSettingsService sensorSettingsService;
+
+    public List<Station> findAllStations() {
+        return stationRepo.findAll();
+    }
+
+    @Transactional
     public void saveAll(List<Station> stations) {
         System.out.println("SAVING " + stations.size() + " stations to database");
         stationRepo.saveAll(stations);
+        sensorSettingsService.updateLastUpdateDate();
     }
 
     public void retrieveAndSaveAllStations() throws IOException, ParseException {
@@ -75,7 +85,7 @@ public class StationService {
                 st.setAreaTH((String) stationObject.get("areaTH"));
                 st.setAreaEN((String) stationObject.get("areaEN"));
                 st.setStationType((String) stationObject.get("stationType"));
-                st.setLat((String) stationObject.get("lat"));
+                st.setLatitude((String) stationObject.get("lat"));
                 st.setLongitude((String) stationObject.get("long"));
 
 
@@ -99,5 +109,9 @@ public class StationService {
 
             saveAll(stations);
         }
+    }
+
+    public SensorSettings getSettings() {
+        return sensorSettingsService.getSettings();
     }
 }

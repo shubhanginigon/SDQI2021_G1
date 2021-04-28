@@ -1,7 +1,9 @@
 package com.sdqi2021.AQMS.controller.admin;
 
+import com.sdqi2021.AQMS.service.StationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,9 @@ public class SensorsController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SensorsController.class);
 
+    @Autowired
+    StationService stationService;
+
     @ModelAttribute("module")
     public String module() {
         return "sidebar_sensors";
@@ -22,6 +27,8 @@ public class SensorsController {
     @GetMapping({"/", ""})
     public String showSensorsIndex(Model model) {
         model.addAttribute("title", "Sensors Management");
+        model.addAttribute("stations", stationService.findAllStations());
+        model.addAttribute("settings", stationService.getSettings());
         return "sensors_index";
     }
 
