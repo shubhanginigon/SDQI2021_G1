@@ -69,6 +69,7 @@
                                 <th scope="col">Station Type</th>
                                 <th scope="col">PM2.5</th>
                                 <th scope="col">Unit</th>
+                                <th scope="col">Last Updated</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -81,6 +82,7 @@
                                 <td th:text="${station.stationType}"></td>
                                 <td th:text="${station.lastUpdate.PM25.value}"></td>
                                 <td th:text="${station.lastUpdate.PM25.unit}"></td>
+                                <td th:text="|${station.lastUpdate.date} ${station.lastUpdate.time}|"></td>
 
                             </tr>
                             </tbody>
