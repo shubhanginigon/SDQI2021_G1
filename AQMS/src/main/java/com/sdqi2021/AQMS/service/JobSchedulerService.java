@@ -1,6 +1,5 @@
 package com.sdqi2021.AQMS.service;
 
-import com.sdqi2021.AQMS.model.SensorSettings;
 import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,8 +25,6 @@ public class JobSchedulerService {
     Timer timer;
 
     private int runCount = 0;
-
-
 
     @Transactional
     public void startRetrievingStations() {

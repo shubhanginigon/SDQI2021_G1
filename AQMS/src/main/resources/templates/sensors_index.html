@@ -63,53 +63,52 @@
           </div>
         </div>
         <div id="stations" class="row col-12 mt-3">
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#tabular"
-                >Tabular</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#map">Map View</a>
-            </li>
-          </ul>
-          <br />
-          <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade active show" id="tabular">
-              <div id="stations-list" class="row mt-3">
-                <table class="table table-hover table-sm table-bordered">
-                  <thead>
-                    <tr class="table-primary">
-                      <th scope="col">Station ID</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Area</th>
-                      <th scope="col">Latitude</th>
-                      <th scope="col">Longitude</th>
-                      <th scope="col">Station Type</th>
-                      <th scope="col">PM2.5</th>
-                      <th scope="col">Unit</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr
-                      class="table-default table-sm"
-                      th:each="station : ${stations}"
-                    >
-                      <td th:text="${station.stationID}"></td>
-                      <td th:text="${station.nameEN}"></td>
-                      <td th:text="${station.areaEN}"></td>
-                      <td th:text="${station.latitude}"></td>
-                      <td th:text="${station.longitude}"></td>
-                      <td th:text="${station.stationType}"></td>
-                      <td th:text="${station.lastUpdate.PM25.value}"></td>
-                      <td th:text="${station.lastUpdate.PM25.unit}"></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="map">
-              <p>Map View</p>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#tabular">Tabular</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#map">Map View</a>
+                </li>
+            </ul>
+            <br>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active show" id="tabular">
+                    <div id="stations-list" class="row mt-3">
+                        <table class="table table-hover table-sm table-bordered">
+                            <thead>
+                            <tr class="table-primary">
+                                <th scope="col">Station ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Area</th>
+                                <th scope="col">Latitude</th>
+                                <th scope="col">Longitude</th>
+                                <th scope="col">Station Type</th>
+                                <th scope="col">PM2.5</th>
+                                <th scope="col">Unit</th>
+                                <th scope="col">Last Updated</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="table-default table-sm" th:each="station : ${stations}">
+                                <td th:text="${station.stationID}"></td>
+                                <td th:text="${station.nameEN}"></td>
+                                <td th:text="${station.areaEN}"></td>
+                                <td th:text="${station.latitude}"></td>
+                                <td th:text="${station.longitude}"></td>
+                                <td th:text="${station.stationType}"></td>
+                                <td th:text="${station.lastUpdate.PM25.value}"></td>
+                                <td th:text="${station.lastUpdate.PM25.unit}"></td>
+                                <td th:text="|${station.lastUpdate.date} ${station.lastUpdate.time}|"></td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="map">
+                    <p>Map View</p>
+                </div>
             </div>
           </div>
         </div>
