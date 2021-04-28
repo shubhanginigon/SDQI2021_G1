@@ -21,7 +21,7 @@ public class Station {
     private String areaTH;
     private String areaEN;
     private String stationType;
-    private String lat;
+    private String latitude;
     private String longitude;
 
     @Embedded
