@@ -1,0 +1,11 @@
+1. Link to our JIRA project with tasks and roadmap:
+
+https://sqdi2021g1.atlassian.net/jira/software/c/projects/AQMS/boards/4/roadmap
+
+2. Link to our GitHub with readme file about the project and status of the implementation. 
+
+https://github.com/shubhanginigon/SDQI2021_G1
+
+3. Link to folder having installation and usage instruction as System Documentation and User Documentation respectively. 
+
+https://github.com/shubhanginigon/SDQI2021_G1/tree/main/Related%20Documents/Final%20Report%20Document
