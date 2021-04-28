@@ -19,7 +19,7 @@ nav {
     padding: 20px;
     margin-left: 250px;
     height: 100%;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 .admin-content {
