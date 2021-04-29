@@ -156,6 +156,10 @@ label #sidebar_btn:hover{
     overflow: auto;
 }
 
+#station-map {
+    overflow: auto;
+}
+
 div#stations .nav-tabs {
     width: 100%;
 }
