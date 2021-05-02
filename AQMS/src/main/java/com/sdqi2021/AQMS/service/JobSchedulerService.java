@@ -49,7 +49,7 @@ public class JobSchedulerService {
             }
         };
         timer = new Timer();
-        timer.schedule(timerTask, 0L, sensorSettingsService.getSettings().getRefreshIntervalSeconds());
+        timer.schedule(timerTask, 0L, sensorSettingsService.getSettings().getRefreshIntervalSeconds() * 1000L);
 
         LOGGER.info("--- 10s Timer started with fixed rate scheduling... ---");
         LOGGER.info("Run Count: {}", runCount);

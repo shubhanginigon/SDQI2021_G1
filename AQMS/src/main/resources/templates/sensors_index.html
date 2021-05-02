@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-  <head th:replace="fragments/head_tag :: head_tag">
+<head th:replace="fragments/head_tag :: head_tag">
     &nbsp;
-  </head>
-  <body>
-    <div th:replace="fragments/header :: header">&nbsp;</div>
+</head>
+<body>
+<div th:replace="fragments/header :: header">&nbsp;</div>
 
-    <div th:replace="fragments/sidebar :: sidebar"></div>
+<div th:replace="fragments/sidebar :: sidebar"></div>
 
-    <div class="container-fluid sidebar-content">
-      <div class="col-12">
-        <div id="sensor_status" class="row col-6">
-          <div class="col-8 pt-3 pb-3">
-            <!-- Conditional Server Status -->
-            <div th:if="${settings.serverRunning}">
-              <strong>Server Status: </strong
-              ><span th:if="${settings.serverRunning}" class="text-success"
-                >Running</span
-              >
-            </div>
-            <div th:unless="${settings.serverRunning}">
-              <strong>Server Status: </strong
-              ><span class="text-danger">Stopped</span>
-            </div>
+<div class="container-fluid sidebar-content">
+    <div class="col-12">
 
-            <strong>Refresh Interval: </strong
-            ><span
-              class="text-info"
-              th:text="|${settings.refreshIntervalSeconds} seconds|"
-            ></span>
-            <br />
-            <strong>Last Update: </strong
-            ><span class="text-info" th:text="${settings.lastUpdated}"></span>
-            <br />
-            <strong>Number of Stations: </strong
-            ><span class="text-info">141</span>
-          </div>
-          <div class="col-4">
-            <!-- Conditions for Start / Stop Server-->
-            <div th:if="${settings.serverRunning}">
-              <form th:method="POST" th:action="@{/admin/stopServer}">
-                <input
-                  type="submit"
-                  value="Stop Server"
-                  name="Stop"
-                  class="btn btn-danger"
-                />
-              </form>
-              <!--                    <a href="#" class="btn btn-danger">Stop Server</a>-->
-            </div>
-            <div th:unless="${settings.serverRunning}">
-              <form th:method="POST" th:action="@{/admin/startServer}">
-                <input
-                  type="submit"
-                  value="Start Server"
-                  name="Start"
-                  class="btn btn-success"
-                />
-              </form>
-              <!--                    <a href="#" class="btn btn-danger">Stop Server</a>-->
-            </div>
-          </div>
-        </div>
+<!--        <div id="sensor_status" class="row col-6">-->
+<!--            <div class="col-8 pt-3 pb-3">-->
+<!--                &lt;!&ndash; Conditional Server Status &ndash;&gt;-->
+<!--                <div th:if="${settings.serverRunning}">-->
+<!--                    <strong>Server Status: </strong-->
+<!--                    ><span th:if="${settings.serverRunning}" class="text-success"-->
+<!--                >Running</span-->
+<!--                >-->
+<!--                </div>-->
+<!--                <div th:unless="${settings.serverRunning}">-->
+<!--                    <strong>Server Status: </strong-->
+<!--                    ><span class="text-danger">Stopped</span>-->
+<!--                </div>-->
+
+<!--                <strong>Refresh Interval: </strong-->
+<!--                ><span-->
+<!--                    class="text-info"-->
+<!--                    th:text="|${settings.refreshIntervalSeconds} seconds|"-->
+<!--            ></span>-->
+<!--                <br/>-->
+<!--                <strong>Last Update: </strong-->
+<!--                ><span class="text-info" th:text="${settings.lastUpdated}"></span>-->
+<!--                <br/>-->
+<!--                <strong>Number of Stations: </strong-->
+<!--                ><span class="text-info">141</span>-->
+<!--            </div>-->
+<!--            <div class="col-4">-->
+<!--                &lt;!&ndash; Conditions for Start / Stop Server&ndash;&gt;-->
+<!--                <div th:if="${settings.serverRunning}">-->
+<!--                    <form th:method="POST" th:action="@{/admin/stopServer}">-->
+<!--                        <input-->
+<!--                                type="submit"-->
+<!--                                value="Stop Server"-->
+<!--                                name="Stop"-->
+<!--                                class="btn btn-danger"-->
+<!--                        />-->
+<!--                    </form>-->
+<!--                    &lt;!&ndash;                    <a href="#" class="btn btn-danger">Stop Server</a>&ndash;&gt;-->
+<!--                </div>-->
+<!--                <div th:unless="${settings.serverRunning}">-->
+<!--                    <form th:method="POST" th:action="@{/admin/startServer}">-->
+<!--                        <input-->
+<!--                                type="submit"-->
+<!--                                value="Start Server"-->
+<!--                                name="Start"-->
+<!--                                class="btn btn-success"-->
+<!--                        />-->
+<!--                    </form>-->
+<!--                    &lt;!&ndash;                    <a href="#" class="btn btn-danger">Stop Server</a>&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
         <div id="stations" class="row col-12 mt-3">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
@@ -75,45 +78,87 @@
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade active show" id="tabular">
                     <div id="stations-list" class="row mt-3">
-                        <table class="table table-hover table-sm table-bordered">
+
+                        <script>
+                            var rowCount = $('#allDataTable tr').length;
+                        </script>
+
+                        <table class="table table-hover table-sm table-bordered" id="allDataTable">
                             <thead>
                             <tr class="table-primary">
                                 <th scope="col">Station ID</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Area</th>
-                                <th scope="col">Latitude</th>
-                                <th scope="col">Longitude</th>
                                 <th scope="col">Station Type</th>
                                 <th scope="col">PM2.5</th>
-                                <th scope="col">Unit</th>
+                                <th scope="col">Province</th>
                                 <th scope="col">Last Updated</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="table-default table-sm" th:each="station : ${stations}">
-                                <td th:text="${station.stationID}"></td>
-                                <td th:text="${station.nameEN}"></td>
-                                <td th:text="${station.areaEN}"></td>
-                                <td th:text="${station.latitude}"></td>
-                                <td th:text="${station.longitude}"></td>
-                                <td th:text="${station.stationType}"></td>
-                                <td th:text="${station.lastUpdate.PM25.value}"></td>
-                                <td th:text="${station.lastUpdate.PM25.unit}"></td>
-                                <td th:text="|${station.lastUpdate.date} ${station.lastUpdate.time}|"></td>
-
+                            <tr class="table-default table-sm" th:each="station : ${results}">
+                                <td th:text="${station.station_id}"></td>
+                                <td th:text="${station.station_name}"></td>
+                                <td th:text="${station.area}"></td>
+                                <td th:text="${station.station_type}"></td>
+                                <td th:text="${station.pm_value}"></td>
+                                <td th:text="${station.province}"></td>
+                                <td th:text="${station.date_time}"></td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="map">
-                    <p>Map View</p>
+
+<!--                    <div id="station-map" class="row mt-3">-->
+<!--                        <div class='tableauPlaceholder' id='viz1619673535547' style='position: relative'>-->
+<!--                            <noscript><a href='#'><img alt='Dashboard 2 '-->
+<!--                                                       src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sr&#47;Srt_PM25&#47;Dashboard2&#47;1_rss.png'-->
+<!--                                                       style='border: none'/></a></noscript>-->
+<!--                            <object class='tableauViz' style='display:none;'>-->
+<!--                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>-->
+<!--                                <param name='embed_code_version' value='3'/>-->
+<!--                                <param name='site_root' value=''/>-->
+<!--                                <param name='name' value='Srt_PM25&#47;Dashboard2'/>-->
+<!--                                <param name='tabs' value='no'/>-->
+<!--                                <param name='toolbar' value='yes'/>-->
+<!--                                <param name='static_image'-->
+<!--                                       value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sr&#47;Srt_PM25&#47;Dashboard2&#47;1.png'/>-->
+<!--                                <param name='animate_transition' value='yes'/>-->
+<!--                                <param name='display_static_image' value='yes'/>-->
+<!--                                <param name='display_spinner' value='yes'/>-->
+<!--                                <param name='display_overlay' value='yes'/>-->
+<!--                                <param name='display_count' value='yes'/>-->
+<!--                                <param name='language' value='en'/>-->
+<!--                                <param name='filter' value='publish=yes'/>-->
+<!--                            </object>-->
+<!--                        </div>-->
+<!--                        <script type='text/javascript'>-->
+<!--                            var divElement = document.getElementById('viz1619673535547');-->
+<!--                            var vizElement = divElement.getElementsByTagName('object')[0];-->
+<!--                            if (divElement.offsetWidth > 800) {-->
+<!--                                vizElement.style.width = '100%';-->
+<!--                                vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';-->
+<!--                            } else if (divElement.offsetWidth > 500) {-->
+<!--                                vizElement.style.width = '100%';-->
+<!--                                vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';-->
+<!--                            } else {-->
+<!--                                vizElement.style.width = '100%';-->
+<!--                                vizElement.style.height = '777px';-->
+<!--                            }-->
+<!--                            var scriptElement = document.createElement('script');-->
+<!--                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';-->
+<!--                            vizElement.parentNode.insertBefore(scriptElement, vizElement);-->
+<!--                        </script>-->
+<!--                    </div>-->
+
                 </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <div th:replace="fragments/footer :: footer"></div>
-  </body>
+</div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
 </html>
