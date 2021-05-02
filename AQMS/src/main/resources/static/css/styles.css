@@ -163,3 +163,7 @@ label #sidebar_btn:hover{
 div#stations .nav-tabs {
     width: 100%;
 }
+
+.visualization-content {
+    height: 100%;
+}

@@ -1,8 +1,8 @@
 package com.sdqi2021.AQMS.controller.admin;
 
-import com.sdqi2021.AQMS.model.SensorSettings;
 import com.sdqi2021.AQMS.model.User;
 import com.sdqi2021.AQMS.service.JobSchedulerService;
+import com.sdqi2021.AQMS.service.RestService;
 import com.sdqi2021.AQMS.service.SensorSettingsService;
 import com.sdqi2021.AQMS.service.UserService;
 import org.slf4j.Logger;
@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 
 @Controller
@@ -30,6 +31,9 @@ public class AdminController {
     @Autowired
     SensorSettingsService sensorSettingsService;
 
+    @Autowired
+    RestService restService;
+
     @ModelAttribute("module")
     public String module() {
         return "sidebar_dashboard";
@@ -40,7 +44,18 @@ public class AdminController {
         model.addAttribute("title", "Admin Dashboard");
 
         // Start Station service on admin login based on settings
-        startStopStationServers();
+        ////startStopStationServers();
+        List<List<String>> sensorTypes = restService.getTotalSensorTypes();
+        String totalSensorTypes = sensorTypes.get(0).get(0);
+        model.addAttribute("totalSensorTypes", totalSensorTypes);
+
+        List<List<String>> stationTypes = restService.getTotalStationTypes();
+        String totalStationTypes = stationTypes.get(0).get(0);
+        model.addAttribute("totalStationTypes", totalStationTypes);
+
+        List<List<String>> totalRows = restService.getTotalRowsOfData();
+        String totalRowsStr = totalRows.get(0).get(0);
+        model.addAttribute("totalRows", totalRowsStr);
 
         return "admin_index";
     }

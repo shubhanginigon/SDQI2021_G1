@@ -1,5 +1,6 @@
 package com.sdqi2021.AQMS.controller.admin;
 
+import com.sdqi2021.AQMS.service.SensorSettingsService;
 import com.sdqi2021.AQMS.service.StationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,9 @@ public class SensorsController {
     @Autowired
     StationService stationService;
 
+    @Autowired
+    SensorSettingsService sensorSettingsService;
+
     @ModelAttribute("module")
     public String module() {
         return "sidebar_sensors";
@@ -26,9 +30,12 @@ public class SensorsController {
 
     @GetMapping({"/", ""})
     public String showSensorsIndex(Model model) {
+
+//        model.addAttribute("stations", stationService.findAllStations());
+//        model.addAttribute("settings", stationService.getSettings());
+
         model.addAttribute("title", "Sensors Management");
-        model.addAttribute("stations", stationService.findAllStations());
-        model.addAttribute("settings", stationService.getSettings());
+        model.addAttribute("results", sensorSettingsService.queryAll());
         return "sensors_index";
     }
 
